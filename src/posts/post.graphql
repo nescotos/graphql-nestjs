@@ -1,0 +1,19 @@
+type Query {
+  getPosts: [Post]
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput): User
+}
+
+type Post {
+  id: Int
+  title: String
+  description: String
+}
+
+input CreateUserInput {
+  title: String
+  description: String
+  userId: Int
+}

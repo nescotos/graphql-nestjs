@@ -10,6 +10,7 @@ type User {
     id: Int
     name: String
     username: String
+    posts: [Post]
 }
 
 input CreateUserInput {

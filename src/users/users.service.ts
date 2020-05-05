@@ -11,7 +11,11 @@ export class UsersService {
         private repository: Repository<Model>
     ){}
 
-    public async create(user: User){
+    public async create(user: User): Promise<User>  {
         return await this.repository.save(user);
+    }
+
+    public async readAll(): Promise<User[]>{
+        return await this.repository.find();
     }
 }
