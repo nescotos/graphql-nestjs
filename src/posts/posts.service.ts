@@ -16,17 +16,19 @@ export class PostsService {
   }
 
   public async readAll(): Promise<Post[]> {
-    return await this.repository.find();
+    return await this.repository.find({relations: ['user']});
   }
 
   public async update(id: number, data: Post): Promise<Post>{
     console.log('here');
     await this.repository.update(id, data);
-    return await this.repository.findOne(id);
+    return await this.repository.findOne(id, { relations: ['user'] });
   }
 
   public async delete(id: number): Promise<Post>{
-    const postToBeDeleted = await this.repository.findOne(id);
+    const postToBeDeleted = await this.repository.findOne(id, {
+      relations: ['user'],
+    });
     await this.repository.softDelete(id);
     return postToBeDeleted;
   }

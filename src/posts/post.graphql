@@ -12,6 +12,7 @@ type Post {
   id: Int
   title: String
   description: String
+  user: User
 }
 
 input CreatePostInput {

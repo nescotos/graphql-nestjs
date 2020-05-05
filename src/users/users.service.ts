@@ -16,6 +16,6 @@ export class UsersService {
     }
 
     public async readAll(): Promise<User[]>{
-        return await this.repository.find();
+        return await this.repository.find({relations: ['posts']});
     }
 }

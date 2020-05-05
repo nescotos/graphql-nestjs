@@ -28,6 +28,8 @@ export abstract class IMutation {
 
     abstract updatePost(id: string, updatePostInput: CreatePostInput): Post | Promise<Post>;
 
+    abstract deletePost(id: string): Post | Promise<Post>;
+
     abstract createUser(createUserInput?: CreateUserInput): User | Promise<User>;
 }
 
@@ -35,6 +37,7 @@ export class Post {
     id?: number;
     title?: string;
     description?: string;
+    user?: User;
 }
 
 export class User {
