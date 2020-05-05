@@ -3,7 +3,9 @@ type Query {
 }
 
 type Mutation {
-  createUser(createUserInput: CreateUserInput): User
+  createPost(createPostInput: CreatePostInput!): Post
+  updatePost(id: ID!, updatePostInput: CreatePostInput!): Post
+  deletePost(id: ID!): Post
 }
 
 type Post {
@@ -12,7 +14,7 @@ type Post {
   description: String
 }
 
-input CreateUserInput {
+input CreatePostInput {
   title: String
   description: String
   userId: Int
