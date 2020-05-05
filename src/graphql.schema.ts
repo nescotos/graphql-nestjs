@@ -11,6 +11,10 @@ export class CreateUserInput {
     username?: string;
 }
 
+export abstract class IQuery {
+    abstract getUsers(): User[] | Promise<User[]>;
+}
+
 export abstract class IMutation {
     abstract createUser(createUserInput?: CreateUserInput): User | Promise<User>;
 }
